@@ -18,15 +18,34 @@ export const DeleleProduto = async (req: Request, res: Response) => {
     }
 }
 
-export const CreateProduto = async (req: Request, res: Response) =>{
-    try{
-        const { nome, categoria, valor, subCategoria, detalhe } = req.body;
+export const CreateProduto = async (req: Request, res: Response) => {
+    try {
+        let imagens = [];
+        if (req.files && Array.isArray(req.files)) {
+            for (const file of req.files) {
+                let filePath = file.path.replace(/\\/g, '/').split('public')[1];
+                imagens.push(filePath);
+            }
+        } else {
+            return res.status(400).json({ error: "Nenhum arquivo foi enviado." });
+        }
 
-        const newProduto = await Produtos.create({nome , detalhe , valor , categoria , subCategoria });
-        res.json({ id: newProduto.id , newProduto });
+        const imagensPath = imagens.join(';');
+
+
+        const { nome, categoria, valor, subCategoria, detalhe } = req.body;
+        if (!nome || !categoria || !valor || !subCategoria || !detalhe) {
+            console.log({ erro: true })
+            return res.status(400).json({ error: "Todos os campos são obrigatórios." });
+        }
+        const newProduto = await Produtos.create({ nome, detalhe, valor, categoria, subCategoria, imagens:imagensPath });
+        res.json({ id: newProduto.id, newProduto });
+        console.log(res.status)
         console.log(newProduto);
-    }catch(error){
+    } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal Server Error" });
     }
-} 
+}
+
+

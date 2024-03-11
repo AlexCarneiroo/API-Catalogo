@@ -8,7 +8,7 @@ export interface ProdutosInterface extends Model{
     categoria:string,
     subCategoria:string,
     maisVendidos:boolean,
-    imagens?:string,
+    imagens:string,
     detalhe:string
 }
 
@@ -37,7 +37,7 @@ export const Produtos = sequelizee.define<ProdutosInterface>('produtos',{
         type:DataTypes.STRING
     },
     imagens:{
-        type:DataTypes.BLOB
+        type:DataTypes.STRING
     }
 },{
     tableName:'produtos',
