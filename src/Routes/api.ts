@@ -23,6 +23,8 @@ router.post('/create' , upload.array('imagens', 10) , ApiControlers.CreateProdut
 
 router.get('/all' , ApiControlers.AllProdutos)
 router.delete('/delete/:id', ApiControlers.DeleleProduto)
+router.put('/update/:id', ApiControlers.UpdadeMaisVendidos)
+
 
 
 export default router
