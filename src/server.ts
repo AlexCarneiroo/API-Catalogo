@@ -19,6 +19,7 @@ server.use(bodyparse.json())
 server.use(api)
 
 
+
 server.use((req: Request, res: Response) => {
     res.status(404);
     res.json({error: 'Endpoint não encontrado.'});
