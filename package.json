@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon -e ts,json src/server.ts",
-    "build":"tsc",
-    "start": "node dist/server.js"
+    "start-dev": "nodemon -e ts,json src/server.ts"
   },
   "author": "",
   "license": "ISC",
