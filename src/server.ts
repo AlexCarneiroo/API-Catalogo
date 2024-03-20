@@ -15,6 +15,10 @@ server.use(express.urlencoded({extended: true}));
 server.use(cors())
 server.use(bodyparse.json())
 
+server.get("/" , (req:Request , res:Response)=>{
+    res.send('Ola , Seja Bem vindo!!!')
+})
+
 
 server.use(api)
 
