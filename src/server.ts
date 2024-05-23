@@ -17,6 +17,7 @@ server.use(bodyparse.json())
 
 server.get("/" , (req:Request , res:Response)=>{
     res.send('Ola , Seja Bem vindo!!!')
+    console.log("Testando....")
 })
 
 
