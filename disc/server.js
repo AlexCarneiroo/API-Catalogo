@@ -15,6 +15,10 @@ server.use(express_1.default.static(path_1.default.join(__dirname, '../public'))
 server.use(express_1.default.urlencoded({ extended: true }));
 server.use((0, cors_1.default)());
 server.use(body_parser_1.default.json());
+server.get("/", (req, res) => {
+    res.send('Ola , Seja Bem vindo!!!');
+    console.log("Testando....");
+});
 server.use(api_1.default);
 server.use((req, res) => {
     res.status(404);
