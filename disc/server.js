@@ -16,7 +16,7 @@ server.use(express_1.default.urlencoded({ extended: true }));
 server.use((0, cors_1.default)());
 server.use(body_parser_1.default.json());
 server.get("/", (req, res) => {
-    res.send('Ola , Seja Bem vindo!!!');
+    res.json({ message: "Servidor rodando!!!!" });
     console.log("Testando....");
 });
 server.use(api_1.default);

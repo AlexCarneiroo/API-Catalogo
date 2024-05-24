@@ -16,6 +16,7 @@ server.use(cors())
 server.use(bodyparse.json())
 
 server.get("/" , (req:Request , res:Response)=>{
+    res.json({message:"Servidor rodando!!!!"})
     res.send('Ola , Seja Bem vindo!!!')
     console.log("Testando....")
 })
