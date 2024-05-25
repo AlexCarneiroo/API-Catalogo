@@ -24,4 +24,4 @@ server.use((req, res) => {
     res.status(404);
     res.json({ error: 'Endpoint não encontrado.' });
 });
-server.listen(process.env.PORT);
+server.listen(1000);
