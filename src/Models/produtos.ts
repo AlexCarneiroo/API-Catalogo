@@ -1,5 +1,5 @@
 import { Model , DataTypes } from "sequelize";
-import { sequelizee } from "../Instaces/mysql";
+import { sequelize } from "../Instaces/mysql";
 
 export interface ProdutosInterface extends Model{
     id:number,
@@ -12,7 +12,7 @@ export interface ProdutosInterface extends Model{
     detalhe:string
 }
 
-export const Produtos = sequelizee.define<ProdutosInterface>('produtos',{
+export const Produtos = sequelize.define<ProdutosInterface>('produtus',{
     id:{
         primaryKey:true,
         autoIncrement:true,
@@ -40,6 +40,6 @@ export const Produtos = sequelizee.define<ProdutosInterface>('produtos',{
         type:DataTypes.STRING
     }
 },{
-    tableName:'produtos',
+    tableName:'produtus',
     timestamps:false
 })

@@ -3,11 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sequelizee = void 0;
+exports.sequelize = void 0;
 const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-exports.sequelizee = new sequelize_1.Sequelize(process.env.MYSQL_DB, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
+exports.sequelize = new sequelize_1.Sequelize('produtos', // Nome do banco de dados
+'root', // Nome do usuário
+'alex2003', // Senha
+{
     dialect: 'mysql',
-    port: parseInt(process.env.MYSQL_PORT)
+    port: 3306 // Porta padrão do MySQL
 });

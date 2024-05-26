@@ -15,11 +15,11 @@ server.use(express.urlencoded({extended: true}));
 server.use(cors())
 server.use(bodyparse.json())
 
-server.get("/" , (req:Request , res:Response)=>{
-    res.json({message:"Servidor rodando!!!!"})
-    res.send('Ola , Seja Bem vindo!!!')
-    console.log("Testando....")
-})
+server.get("/", (req: Request, res: Response) => {
+    res.send('Ola, Seja Bem vindo!!!');
+    console.log("Testando....");
+});
+
 
 
 server.use(api)
