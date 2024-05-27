@@ -1,10 +1,10 @@
 import { Sequelize } from 'sequelize';
 
-// Substitua esses valores pelos dados do seu banco de dados
+// Substitua pelos valores reais do seu banco de dados RDS
 const dbName = 'produtos';
 const dbUser = 'root';
 const dbPassword = 'alex2003';
-const dbHost = 'mydbinstance.abcdefghijk.us-west-2.rds.amazonaws.com'; // Substitua pelo endpoint da sua instância RDS
+const dbHost = 'catalogo.c164u6c64wo7.us-east-1.rds.amazonaws.com'; // Endpoint correto da instância RDS
 const dbPort = 3306; // Porta padrão do MySQL
 
 export const sequelize = new Sequelize(
