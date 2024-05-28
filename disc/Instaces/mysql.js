@@ -27,9 +27,9 @@ exports.sequelize.authenticate()
 const mysql2_1 = __importDefault(require("mysql2"));
 const connection = mysql2_1.default.createConnection({
     host: 'database-1.xxxxxxxx.us-east-1.rds.amazonaws.com',
-    user: 'catalogo', // Nome de usuário do RDS
-    password: 'your_password', // Senha do RDS
-    database: 'your_database' // Nome do banco de dados criado no RDS
+    user: 'admin', // Nome de usuário do RDS
+    password: 'alex2003', // Senha do RDS
+    database: 'catalogo' // Nome do banco de dados criado no RDS
 });
 connection.connect((err) => {
     if (err) {
