@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sequelize = void 0;
 const sequelize_1 = require("sequelize");
@@ -20,4 +23,18 @@ exports.sequelize.authenticate()
 })
     .catch(err => {
     console.error('Unable to connect to the database:', err);
+});
+const mysql2_1 = __importDefault(require("mysql2"));
+const connection = mysql2_1.default.createConnection({
+    host: 'database-1.xxxxxxxx.us-east-1.rds.amazonaws.com',
+    user: 'catalogo', // Nome de usuário do RDS
+    password: 'your_password', // Senha do RDS
+    database: 'your_database' // Nome do banco de dados criado no RDS
+});
+connection.connect((err) => {
+    if (err) {
+        console.error('Erro de conexão: ' + err.stack);
+        return;
+    }
+    console.log('Conectado ao banco de dados como id ' + connection.threadId);
 });

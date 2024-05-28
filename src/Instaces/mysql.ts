@@ -26,3 +26,22 @@ sequelize.authenticate()
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+
+
+import mysql from "mysql2"
+
+const connection = mysql.createConnection({
+  host: 'database-1.xxxxxxxx.us-east-1.rds.amazonaws.com',
+  user: 'catalogo',          // Nome de usuário do RDS
+  password: 'your_password', // Senha do RDS
+  database: 'your_database'  // Nome do banco de dados criado no RDS
+});
+
+connection.connect((err:any) => {
+  if (err) {
+    console.error('Erro de conexão: ' + err.stack);
+    return;
+  }
+  console.log('Conectado ao banco de dados como id ' + connection.threadId);
+});
+
