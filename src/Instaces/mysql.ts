@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+/* import { Sequelize } from 'sequelize';
 
 // Substitua pelos valores reais do seu banco de dados RDS
 const dbName = 'catalogo';
@@ -26,12 +26,12 @@ sequelize.authenticate()
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-
+ */
 
 import mysql from "mysql2"
 
 const connection = mysql.createConnection({
-  host: 'database-1.xxxxxxxx.us-east-1.rds.amazonaws.com',
+  host: 'catalogo.c164u6c64wo7.us-east-1.rds.amazonaws.com',
   user: 'admin',          // Nome de usuário do RDS
   password: 'alex2003', // Senha do RDS
   database: 'catalogo'  // Nome do banco de dados criado no RDS
