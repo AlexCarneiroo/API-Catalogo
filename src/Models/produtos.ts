@@ -12,7 +12,7 @@ export interface ProdutosInterface extends Model{
     detalhe:string
 }
 
-export const Produtos = sequelize.define<ProdutosInterface>('produtus',{
+export const Produtos = sequelize.define<ProdutosInterface>('produtos',{
     id:{
         primaryKey:true,
         autoIncrement:true,
@@ -40,6 +40,6 @@ export const Produtos = sequelize.define<ProdutosInterface>('produtus',{
         type:DataTypes.STRING
     }
 },{
-    tableName:'produtus',
+    tableName:'produtos',
     timestamps:false
 })

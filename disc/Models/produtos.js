@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Produtos = void 0;
 const sequelize_1 = require("sequelize");
 const mysql_1 = require("../Instaces/mysql");
-exports.Produtos = mysql_1.sequelize.define('produtus', {
+exports.Produtos = mysql_1.sequelize.define('produtos', {
     id: {
         primaryKey: true,
         autoIncrement: true,
@@ -31,6 +31,6 @@ exports.Produtos = mysql_1.sequelize.define('produtus', {
         type: sequelize_1.DataTypes.STRING
     }
 }, {
-    tableName: 'produtus',
+    tableName: 'produtos',
     timestamps: false
 });
