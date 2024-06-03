@@ -28,7 +28,7 @@ export const AllProdutos = async (req: Request, res: Response) => {
             ...produto.toJSON(),
             imagens: interpretarImagens(produto.dataValues.imagens),
         }));
-        res.json(produtosComImagens);
+        res.json(allProdutos);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal Server Error" });

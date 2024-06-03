@@ -15,6 +15,9 @@ exports.Produtos = mysql_1.sequelize.define('produtos', {
     valor: {
         type: sequelize_1.DataTypes.NUMBER
     },
+    valorPromo: {
+        type: sequelize_1.DataTypes.NUMBER
+    },
     categoria: {
         type: sequelize_1.DataTypes.STRING
     },
@@ -22,6 +25,9 @@ exports.Produtos = mysql_1.sequelize.define('produtos', {
         type: sequelize_1.DataTypes.STRING
     },
     maisVendidos: {
+        type: sequelize_1.DataTypes.BOOLEAN
+    },
+    promocao: {
         type: sequelize_1.DataTypes.BOOLEAN
     },
     detalhe: {

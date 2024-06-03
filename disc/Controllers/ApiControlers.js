@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdadeMaisVendidos = exports.CreateProduto = exports.DeleleProduto = exports.AllProdutos = void 0;
+exports.UpdadePromo = exports.UpdadeMaisVendidos = exports.CreateProduto = exports.DeleleProduto = exports.AllProdutos = void 0;
 const produtos_1 = require("../Models/produtos");
 // Função para tentar interpretar o campo 'imagens' corretamente
 function interpretarImagens(dado) {
@@ -32,7 +32,7 @@ const AllProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         let allProdutos = yield produtos_1.Produtos.findAll();
         const produtosComImagens = allProdutos.map(produto => (Object.assign(Object.assign({}, produto.toJSON()), { imagens: interpretarImagens(produto.dataValues.imagens) })));
-        res.json(produtosComImagens);
+        res.json(allProdutos);
     }
     catch (error) {
         console.error(error);
@@ -96,3 +96,22 @@ const UpdadeMaisVendidos = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.UpdadeMaisVendidos = UpdadeMaisVendidos;
+const UpdadePromo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const { promocao } = req.body;
+    try {
+        const produto = yield produtos_1.Produtos.findByPk(id);
+        if (produto) {
+            produto.promocao = promocao;
+            yield produto.save();
+            res.json({ success: true, produto });
+        }
+        else {
+            res.status(404).json({ success: false, message: 'Produto não encontrado' });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ success: false, message: 'Erro ao atualizar o produto' });
+    }
+});
+exports.UpdadePromo = UpdadePromo;

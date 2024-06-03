@@ -45,4 +45,5 @@ router.post('/create', upload.array('imagens', 10), ApiControlers.CreateProduto)
 router.get('/all', ApiControlers.AllProdutos);
 router.delete('/delete/:id', ApiControlers.DeleleProduto);
 router.put('/update/:id', ApiControlers.UpdadeMaisVendidos);
+router.put('/updatepromocao/:id', ApiControlers.UpdadePromo);
 exports.default = router;
