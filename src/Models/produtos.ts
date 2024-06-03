@@ -9,7 +9,9 @@ export interface ProdutosInterface extends Model{
     subCategoria:string,
     maisVendidos:boolean,
     imagens:string,
-    detalhe:string
+    detalhe:string,
+    promocao:boolean,
+    valorPromo:number
 }
 
 export const Produtos = sequelize.define<ProdutosInterface>('produtos',{
@@ -24,6 +26,9 @@ export const Produtos = sequelize.define<ProdutosInterface>('produtos',{
     valor:{
         type:DataTypes.NUMBER
     },
+    valorPromo:{
+        type:DataTypes.NUMBER
+    },
     categoria:{
         type:DataTypes.STRING
     },
@@ -31,6 +36,9 @@ export const Produtos = sequelize.define<ProdutosInterface>('produtos',{
         type:DataTypes.STRING
     },
     maisVendidos:{
+        type:DataTypes.BOOLEAN
+    },
+    promocao:{
         type:DataTypes.BOOLEAN
     },
     detalhe:{

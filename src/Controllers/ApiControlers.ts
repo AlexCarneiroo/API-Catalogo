@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 
 import { Produtos } from "../Models/produtos";
+import { promiseHooks } from "v8";
 
 // Função para tentar interpretar o campo 'imagens' corretamente
 function interpretarImagens(dado:any) {
@@ -93,3 +94,22 @@ export const UpdadeMaisVendidos = async (req: Request, res: Response) => {
     }
 }
 
+export const UpdadePromo = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { promocao } = req.body; 
+
+    try {
+        const produto = await Produtos.findByPk(id);
+
+        if (produto) {
+            produto.promocao = promocao; 
+            await produto.save(); 
+
+            res.json({ success: true, produto });
+        } else {
+            res.status(404).json({ success: false, message: 'Produto não encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Erro ao atualizar o produto'});
+    }
+}
