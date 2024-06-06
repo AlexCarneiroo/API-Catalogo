@@ -46,7 +46,7 @@ export const DeleleProduto = async (req: Request, res: Response) => {
     }
 }
 
-export const CreateProduto = async (req: Request, res: Response) => {
+export const CreateProduto = async (req: Request, res: Response , imagens: string[]) => {
     try {
         let imagens = [];
         if (req.files && Array.isArray(req.files)) {

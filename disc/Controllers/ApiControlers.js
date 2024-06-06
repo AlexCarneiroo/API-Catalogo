@@ -51,7 +51,7 @@ const DeleleProduto = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.DeleleProduto = DeleleProduto;
-const CreateProduto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const CreateProduto = (req, res, imagens) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let imagens = [];
         if (req.files && Array.isArray(req.files)) {

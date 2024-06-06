@@ -1,0 +1,28 @@
+name: Deploy to EC2 using CodeDeploy
+
+on:
+  push:
+    branches:
+      - main  # ou a branch que você quer monitorar
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Zip files
+      run: zip -r my-app.zip .
+
+    - name: Upload to S3
+      run: |
+        aws s3 cp my-app.zip s3://your-s3-bucket/my-app.zip
+
+    - name: Deploy with CodeDeploy
+      run: |
+        aws deploy create-deployment \
+          --application-name my-application \
+          --deployment-group-name my-deployment-group \
+          --s3-location bucket=your-s3-bucket,key=my-app.zip,bundleType=zip
